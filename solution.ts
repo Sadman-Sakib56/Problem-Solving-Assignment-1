@@ -55,3 +55,25 @@ function filterByRating(items: {title: string; rating: number} []): {title: stri
     return result;
 }
 
+
+
+
+
+function filterActiveUsers(users: { id: number; name: string; email: string; isActive: boolean }[]): { id: number; name: string; email: string; isActive: boolean }[] {
+
+    const result: { id: number; name: string; email: string; isActive: boolean }[] = [];
+
+
+    for (const user of users) {
+        if (user.isActive) {
+            result.push(user);
+        }
+    }
+    return result;
+
+}
+
+
+
+
+
