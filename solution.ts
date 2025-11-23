@@ -59,7 +59,8 @@ function filterByRating(items: {title: string; rating: number} []): {title: stri
 
 
 
-function filterActiveUsers(users: { id: number; name: string; email: string; isActive: boolean }[]): { id: number; name: string; email: string; isActive: boolean }[] {
+function filterActiveUsers(users: { id: number; name: string; email: string; isActive: boolean }[]):
+            { id: number; name: string; email: string; isActive: boolean }[] {
 
     const result: { id: number; name: string; email: string; isActive: boolean }[] = [];
 
@@ -89,6 +90,49 @@ function printBookDetails(book: Book) {
         `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable}`
     );
 }
+
+
+
+
+
+function getUniqueValues(
+    arr1: (number | string)[],
+    arr2: (number | string)[]
+): (number | string)[] {
+
+    const result: (number | string)[] = [];
+
+    for (let i = 0; i < arr1.length; i++) {
+        let exists = false;
+        for (let j = 0; j < result.length; j++) {
+            if (arr1[i] === result[j]) {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) {
+            result.push(arr1[i]);
+        }
+    }
+
+
+    for (let i = 0; i < arr2.length; i++) {
+        let exists = false;
+        for (let j = 0; j < result.length; j++) {
+            if (arr2[i] === result[j]) {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) {
+            result.push(arr2[i]);
+        }
+    }
+
+    return result;
+}
+
+
 
 
 
