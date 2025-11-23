@@ -25,7 +25,6 @@ function getLength(value: string | any[]): number {
 
 
 
-
 class Person {
     name: string;
     age: number;
@@ -131,6 +130,33 @@ function getUniqueValues(
 
     return result;
 }
+
+
+
+
+
+type Product = {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+};
+
+function calculateTotalPrice(products: Product[]): number {
+    return products.map(item => {
+            let total = item.price * item.quantity;
+
+            if (item.discount) {
+                const discountAmount = total * (item.discount / 100);
+                total = total - discountAmount;
+            }
+
+            return total;
+        })
+        .reduce((sum, value) => sum + value, 0);
+}
+
+
 
 
 
