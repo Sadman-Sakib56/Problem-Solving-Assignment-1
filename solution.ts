@@ -77,3 +77,21 @@ function filterActiveUsers(users: { id: number; name: string; email: string; isA
 
 
 
+interface Book {
+    title: string;
+    author: string;
+    publishedYear: number;
+    isAvailable: boolean;
+}
+
+function printBookDetails(book: Book) {
+    console.log(
+        `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable}`
+    );
+}
+
+
+
+
+
+
